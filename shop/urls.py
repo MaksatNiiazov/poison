@@ -7,7 +7,6 @@ from rest_framework_simplejwt.views import (
     TokenVerifyView
 )
 
-from shop_api import urls as shop_api_urls 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -18,6 +17,6 @@ urlpatterns = [
     path('api/token/verify/', TokenVerifyView.as_view(), name='token_verify'),
     path('api/accounts/', include('drf_registration.urls')),
     
-    path('shop_api/', include(shop_api_urls))
+    path('shop_api/', include('shop_api.urls'))
 
 ]
