@@ -1,5 +1,6 @@
 from django.contrib import admin
 from django.urls import path, include
+from shop.yasg import urlpatterns as yasg_urls
 
 from rest_framework_simplejwt.views import (
     TokenObtainPairView,
@@ -20,3 +21,5 @@ urlpatterns = [
     path('shop_api/', include('shop_api.urls'))
 
 ]
+
+urlpatterns += yasg_urls
