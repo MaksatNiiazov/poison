@@ -9,5 +9,5 @@ class ProductViewSet(ModelViewSet):
 
 
 class MainPageViewSet(ModelViewSet):
-    serializer_class = MainPageSerializer
     queryset = Product.objects.all()
+    serializer_class = MainPageSerializer

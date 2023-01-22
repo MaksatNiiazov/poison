@@ -5,13 +5,13 @@ from shop_api.models import *
 class ProductSerializer(serializers.ModelSerializer):
     class Meta:
         model = Product
-        fields = ('product_name', 'image', 'url')
+        fields = '__all__'
 
 
 class CategorySerializer(serializers.ModelSerializer):
     class Meta:
         model = Category
-        fields = ('category_name',)
+        fields = '__all__'
 
 
 class MainPageSerializer(serializers.ModelSerializer):
@@ -19,4 +19,5 @@ class MainPageSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Product
-        fields = ('product_name', 'image', 'url', 'category')
+        fields = '__all__'
+
