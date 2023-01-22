@@ -169,3 +169,18 @@ SIMPLE_JWT = {
 
 
 AUTH_USER_MODEL = 'users.User'
+
+AUTHENTICATION_BACKENDS = [
+    "django.contrib.auth.backends.ModelBackend",
+]
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+
+EMAIL_HOST = "smtp.yandex.ru"
+EMAIL_PORT = 465
+EMAIL_USE_TLS = False
+EMAIL_USE_SSL = True
+
+EMAIL_HOST_USER = 'NMPoison@yandex.ru'
+EMAIL_HOST_PASSWORD = 'fjauwqvrfwpbibsq'
+DEFAULT_FROM_EMAIL = 'NMPoison@yandex.ru'
