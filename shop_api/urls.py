@@ -13,4 +13,5 @@ router.register('main-page', MainPageViewSet)
 urlpatterns = [
     path('', include(router.urls)),
     path('like/', LikeAPIView.as_view(), name='like'),
+    path('add_photo', ProductPhotoCreateView.as_view(), name='add-photo')
 ]

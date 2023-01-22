@@ -25,6 +25,11 @@ class ProductPhotoSerializer(serializers.ModelSerializer):
         model = ProductPhoto
         fields = ('id', 'image')
 
+        def create(self, validated_data):
+            product = validated_data.pop('product')
+            product_photo = ProductPhoto.objects.create(product=product, **validated_data)
+            return product_photo
+
 
 class ProductSerializer(serializers.ModelSerializer):
     category = CategorySerializer()
@@ -65,7 +70,7 @@ class ProductInOrderSerializer(serializers.ModelSerializer):
 class LikeSerializer(serializers.ModelSerializer):
     class Meta:
         model = Like
-        fields = '__all__'
+        fields = ('product',)
 
 
 class MainPageSerializer(serializers.ModelSerializer):
