@@ -14,7 +14,7 @@ SECRET_KEY = 'django-insecure-rwifw$wh=4r*u-v3&(&2+%-p8lyb2y69tz_3qz21+2c(+y7zbq
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['poisonproject.pythonanywhere.com', '127.0.0.1']
+ALLOWED_HOSTS = ['nmpoison.pythonanywhere.com', '127.0.0.1']
 
 # Application definition
 
