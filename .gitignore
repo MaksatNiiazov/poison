@@ -1,1 +1,4 @@
 /venv/
+/shop_api/migrations/0001_initial.py
+/shop_api/migrations/0002_initial.py
+/shop_api/migrations/0003_remove_product_comments_remove_product_likes.py
