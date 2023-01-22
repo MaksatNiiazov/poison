@@ -14,10 +14,40 @@ class CategorySerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 
+class ColorSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Color
+        fields = ('id', 'color')
+
+
+class ProductPhotoSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = ProductPhoto
+        fields = ('id', 'image')
+
+
 class ProductSerializer(serializers.ModelSerializer):
+    category = CategorySerializer()
+    brand = BrandSerializer()
+    colors = ColorSerializer(many=True, read_only=True)
+    photos = ProductPhotoSerializer(many=True, read_only=True)
+    likes_count = serializers.SerializerMethodField()
+    comments_count = serializers.SerializerMethodField()
+
+    def get_photos(obj):
+        photos = obj.photos.all()
+        return [photo.image.url for photo in photos]
+
+    def get_likes_count(self, obj):
+        return obj.product_likes.count()
+
+    def get_comments_count(self, obj):
+        return obj.product_comments.count()
+
     class Meta:
         model = Product
-        fields = '__all__'
+        fields = ('id', 'category', 'brand', 'name', 'description', 'vendor_code', 'sex', 'new', 'is_product_in_stock',
+                  'colors', 'photos', 'likes_count', 'comments_count')
 
 
 class OrderSerializer(serializers.ModelSerializer):
@@ -36,7 +66,6 @@ class LikeSerializer(serializers.ModelSerializer):
     class Meta:
         model = Like
         fields = '__all__'
-
 
 
 class MainPageSerializer(serializers.ModelSerializer):

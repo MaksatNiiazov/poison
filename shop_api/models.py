@@ -34,12 +34,12 @@ class Color(models.Model):
 
 
 class ProductColor(models.Model):  # Промежуточная таблица связывающая цвет с продуктом
-    product = models.ForeignKey(Product, on_delete=models.CASCADE)
-    color = models.ForeignKey(Color, on_delete=models.CASCADE)
+    product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='colors')
+    color = models.ForeignKey(Color, on_delete=models.CASCADE, related_name='colors')
 
 
 class ProductPhoto(models.Model):
-    product = models.ForeignKey(Product, on_delete=models.CASCADE)
+    product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='photos')
     image = models.ImageField(upload_to='product/list/')
 
 

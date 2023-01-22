@@ -1,6 +1,5 @@
 from rest_framework import mixins
 from rest_framework.generics import CreateAPIView
-from rest_framework.views import APIView
 from rest_framework.viewsets import ModelViewSet, GenericViewSet
 from shop_api.serializers import *
 from shop_api.models import *
